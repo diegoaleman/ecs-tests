@@ -29,7 +29,9 @@ class AvailableHoursController < ApiController
 	end
 
 	def available_schedules
-		consultation_duration = account.configuration['schedule']['consultation_duration']
+		consultation_duration = account
+			.configuration['schedule']['consultation_duration']
+
 		schedules = account_schedules(consultation_duration.minutes)
 
 		consultation_schedules.each do |schedule|
@@ -91,5 +93,4 @@ class AvailableHoursController < ApiController
     end
     result
   end
-
-	end
+end

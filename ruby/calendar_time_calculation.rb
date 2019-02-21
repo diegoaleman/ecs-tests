@@ -55,7 +55,9 @@ module CalendarTimeCalculation
   end
 
   def self.day_schedule_ranges(account, day)
-    ranges = account.configuration['schedule'][day].map { |range| range.split('-') }
+    ranges = account
+			.configuration['schedule'][day].map { |range| range.split('-') }
+
     results = []
 
     ranges.each do |range|
